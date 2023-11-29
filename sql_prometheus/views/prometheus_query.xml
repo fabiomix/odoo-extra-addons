@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- tree view -->
+        <record id="view_prometheus_query_tree" model="ir.ui.view">
+            <field name="name">view.prometheus.query.tree</field>
+            <field name="model">prometheus.query</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="metric_name" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view -->
+        <record id="view_prometheus_query_form" model="ir.ui.view">
+            <field name="name">view.prometheus.query.form</field>
+            <field name="model">prometheus.query</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_test_query" string="Test" type="object"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" />
+                            <h1><field name="name" placeholder="Describe the item..." /></h1>
+                        </div>
+                        <group name="section_detail">
+                            <group name="section_detail_left">
+                                <field name="metric_name" />
+                                <field name="metric_type" />
+                            </group>
+                            <group name="section_detail_right">
+                                <field name="value_column" />
+                                <field name="active" />
+                            </group>
+                        </group>
+                        <group name="section_sql" string="SQL query">
+                            <field name="code" nolabel="1" widget="ace" placeholder="Enter your SQL query here."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- search view -->
+        <record id="view_prometheus_query_search" model="ir.ui.view">
+            <field name="name">view.prometheus.query.search</field>
+            <field name="model">prometheus.query</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" />
+                    <field name="metric_name" />
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_metric_type" string="Metric type" context="{'group_by':'metric_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- action -->
+        <record id="action_prometheus_query" model="ir.actions.act_window">
+            <field name="name">Prometheus Query</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">prometheus.query</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new Prometheus metric query.
+                </p>
+            </field>
+        </record>
+
+        <!-- menuitem -->
+        <record id="menu_prometheus_query" model="ir.ui.menu">
+            <field name="name">Prometheus Query</field>
+            <field name="action" ref="action_prometheus_query" />
+            <field name="parent_id" ref="base.reporting_menuitem" />
+            <field name="sequence" eval="15" />
+        </record>
+
+    </data>
+</odoo>
