@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="demo_active_users_query" model="prometheus.query">
+            <field name="name">DEMO Active Users</field>
+            <field name="metric_name">active_users_demo</field>
+            <field name="metric_type">gauge</field>
+            <field name="value_column">value</field>
+            <field name="code">
+                SELECT COALESCE(ru.active, false) AS active, COUNT(ru.id) AS value
+                FROM res_users ru WHERE true
+                GROUP BY COALESCE(ru.active, false)
+                ORDER BY COALESCE(ru.active, false);
+            </field>
+        </record>
+
+    </data>
+</odoo>
