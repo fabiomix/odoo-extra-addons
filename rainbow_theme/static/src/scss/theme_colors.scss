@@ -1,0 +1,6 @@
+// Main colors
+$o-community-color: #017e84;
+$o-brand-odoo: $o-community-color;
+$o-brand-primary: $o-community-color;
+// Add new dynamic color for required fields
+$o-required-field: hsl(hue($o-brand-primary), 40, 85);

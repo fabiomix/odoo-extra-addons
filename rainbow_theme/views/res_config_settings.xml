@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_res_config_settings_form_inherited" model="ir.ui.view">
+        <field name="name">view.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="priority" eval="110"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='multi_company']" position="after">
+                <h2>Rainbow theme</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="theme_brand_odoo"/>
+                            <div class="text-muted">Choose the color of the top navbar</div>
+                            <div class="mt8"><field name="theme_brand_odoo" placeholder="#017e84"/></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="theme_brand_primary"/>
+                            <div class="text-muted">Choose the color of the buttons</div>
+                            <div class="mt8"><field name="theme_brand_primary" placeholder="#017e84"/></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="theme_brand_preset"/>
+                            <div class="text-muted">Predefined themes</div>
+                            <div class="mt8"><field name="theme_brand_preset"/></div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
