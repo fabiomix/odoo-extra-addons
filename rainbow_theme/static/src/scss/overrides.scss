@@ -1,0 +1,37 @@
+// Overrides to correct various hardcoded colors...
+
+// from fields_extra.scss
+.o_required_modifier {
+    &.o_input, .o_input {
+        background-color: $o-required-field !important;
+    }
+}
+
+.o_field_widget {
+    &.o_field_many2one .o_external_button {
+        color: $o-brand-primary;
+    }
+}
+
+// from form_view_extra.scss
+.o_form_view {
+    .oe_button_box {
+        .oe_stat_button {
+            .o_button_icon {
+                color: $o-brand-primary;
+            }
+            .o_stat_info, > span {
+                .o_stat_value {
+                    color: $o-main-text-color;
+                }
+            }
+        }
+    }
+}
+
+// from search_view_extra.scss
+.o_searchview {
+    .o_searchview_facet {
+        border: 1px solid $o-brand-odoo;
+    }
+}
