@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- form view -->
+        <record id="view_mail_mail_form_inherited" model="ir.ui.view">
+            <field name="name">view.mail.mail.form.inherited</field>
+            <field name="model">mail.mail</field>
+            <field name="inherit_id" ref="mail.view_mail_form" />
+            <field name="priority">30</field>
+            <field name="arch" type="xml">
+                <field name="auto_delete" position="after">
+                    <field name="auto_delete_date" attrs="{'invisible': [('auto_delete', '=', False)]}" />
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
